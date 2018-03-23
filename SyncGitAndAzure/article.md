@@ -23,7 +23,7 @@ You will need node, npm, git and some front-end project. For this example, I wil
 
 If you already have any front-end project and all staff mentioned before just skip this step. If no - let's start from the very beginning.
 
-Go to the Github and create a new repository. Then clone it to your local workspace and create there a new  index.html file with any content you want. This is only to check that basic synchronization mechanism works correctly. Commit your index.html and push it to the remote.
+Go to the Github and create a new repository. Then clone it to your local workspace and create there a new index.html file with any content you want. This is only to check that basic synchronization mechanism works correctly. Commit your index.html and push it to the remote.
 
 ## First sync with Azure
 
@@ -102,8 +102,14 @@ to this one:
 call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%\dist" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;build.cmd;app;node_modules;"
 ```
 
+And that's it
+
 ## Conclusion
 
-TBD
+Deployment setup for GitHub and Azure is:
+
+* Quite simple
+* Doesn't need special knowledge - only bash or cmd
+* Keeps everything under your control
 
 [SyncGitAndAzure]
