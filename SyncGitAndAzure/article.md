@@ -13,7 +13,7 @@
 
 Today we will learn how to build and deploy your front-end application directly from your GitHub account to the site hosted on Azure.
 
-Actually, there are at least few ways how to do this. First one is to setup continues integration for the project. It is a nice and powerful tool but requires too much time to set-up. So, if you need something simple and quick - this is not for you. The second way is to use Kudu. Today we will learn how to do this.
+Actually, there are at least two ways how to do this. First one is to setup continues integration for the project. It is a nice and powerful tool but requires too much time to set-up. So, if you need something simple and quick - this is not for you. The second way is to use Kudu. Today we will learn how to do this.
 
 ## Prerequisite
 
@@ -27,7 +27,15 @@ Go to the Github and create a new repository. Then clone it to your local worksp
 
 ## First sync with Azure
 
-Now it is time to sync your repository with Azure. Open [Azure.Portal](portal.azure.com) and create new WebApp. Feel free to select any service plan you want, this doesn't matter right now. When this will be done, select your website and click on "Deployment options" menu. Here you need to pick GitHub as the source, provide your credentials and select the remote repo you want to sync with. After this, Azure will clone your repository, push all files under the wwwroot folder and start serving static files with IIS server. As far as we have the index.html file in the root of the repository it will be given by default and now you should see it.
+Now it is time to sync your repository with Azure. Open [Azure.Portal](portal.azure.com) and create new WebApp.
+
+[create_new_web_app](empty)
+
+Feel free to select any service plan you want, this doesn't matter right now. When this will be done, select your website and click on "Deployment options" menu.
+
+[sync_select](empty)
+
+Here you need to pick GitHub as the source, provide your credentials and select the remote repo you want to sync with. After this, Azure will clone your repository, push all files under the wwwroot folder and start serving static files with IIS server. As far as we have the index.html file in the root of the repository it will be given by default and now you should see it.
 
 The simplest sync is done. If you need, you can add some js, images, etc., and all should work just fine. But we can do better.
 
@@ -53,7 +61,7 @@ npm run ng serve
 
 Your application should rise and be testable on [http://localhost:4200](http://localhost:4200) Check this and let's go further.
 
-So, at this step we have the repository, that synced with your WebApp and new Angular 5 project. But if you will commit this right now, you will see your first index.html file. This happens because, by default, Azure only copy files from your repository under and nothing more. So, we need to provide some additional information about our deployment process. Fortunately, it is not hard.
+Right now, we have the repository, that synced with your Azure's WebApp and new Angular 5 project. But if you will commit this right now, you will see your first index.html file. This happens because, by default, Azure only copy files from your repository under and nothing more. So, we need to provide some additional information about our deployment process. Fortunately, it is not hard.
 
 Firstly we need to add to the root file with name .deployment with next text:
 
@@ -62,9 +70,11 @@ Firstly we need to add to the root file with name .deployment with next text:
 command = build.cmd
 ```
 
-This will instruct Azure to execute build.cmd file. And there, you can do whatever you want. It is pure command line file that can do almost everything. Isn't this cool? So we can write our own deployment script or modify existed one. But if we will do this manually it will take some time and be not very efficient. So it's time for [Kudu](https://github.com/projectkudu/kudu).Under the hood, Azure uses to sync your code and your publish folder. So we also can use Kudu for our needs. Grab [build.cmd](test) file from my repository and let's take a look at it.
+This will instruct Azure to execute build.cmd file after you commit something new to the repository. And there, you can do whatever you want. It is pure command line file that can do almost everything you need. Isn't this cool?
 
-Build.cmd contains few sections.
+So we can write our own deployment script or modify existed one. But if we will do this manually it will take some time and be not very efficient. Now it's time for [Kudu](https://github.com/projectkudu/kudu).Under the hood, Azure uses it to sync your code and your publish folder. So we also can use Kudu for our needs. Grab [build.cmd](test) file from my repository and let's take a look at it.
+
+Default build.cmd contains few sections.
 
 * Check prerequisitions (node must be installed)
 * Set variables most important for us is DEPLOYMENT_TARGET
@@ -72,8 +82,7 @@ Build.cmd contains few sections.
 * Deployment
 * Error logging section
 
-So as you see all is quite simple.
-What do we need is to create new step to build our project and modify deployment script to put artifacts in the proper place.
+So as you see all is quite simple. What do we need is to create new step to build our project and modify deployment script to put artifacts in the proper place.
 
 Add this after setup step
 
