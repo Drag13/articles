@@ -29,11 +29,11 @@ Go to the Github and create a new repository. Then clone it to your local worksp
 
 Now it is time to sync your repository with Azure. Open [Azure.Portal](portal.azure.com) and create new WebApp.
 
-[create_new_web_app](empty)
+![create_new_web_app](https://raw.githubusercontent.com/Drag13/articles/master/SyncGitAndAzure/Azure.NewApp.png)
 
 Feel free to select any service plan you want, this doesn't matter right now. When this will be done, select your website and click on "Deployment options" menu.
 
-[sync_select](empty)
+![sync_select](https://raw.githubusercontent.com/Drag13/articles/master/SyncGitAndAzure/Azure.Sync.Select.PNG)
 
 Here you need to pick GitHub as the source, provide your credentials and select the remote repo you want to sync with. After this, Azure will clone your repository, push all files under the wwwroot folder and start serving static files with IIS server. As far as we have the index.html file in the root of the repository it will be given by default and now you should see it.
 
@@ -72,14 +72,14 @@ command = build.cmd
 
 This will instruct Azure to execute build.cmd file after you commit something new to the repository. And there, you can do whatever you want. It is pure command line file that can do almost everything you need. Isn't this cool?
 
-So we can write our own deployment script or modify existed one. But if we will do this manually it will take some time and be not very efficient. Now it's time for [Kudu](https://github.com/projectkudu/kudu).Under the hood, Azure uses it to sync your code and your publish folder. So we also can use Kudu for our needs. Grab [build.cmd](test) file from my repository and let's take a look at it.
+So we can write our own deployment script or modify existed one. But if we will do this manually it will take some time and be not very efficient. Now it's time for [Kudu](https://github.com/projectkudu/kudu).Under the hood, Azure uses it to sync your code and your publish folder. So we also can use Kudu for our needs. Grab [build.cmd](https://github.com/Drag13/articles/blob/master/SyncGitAndAzure/example/build.cmd) file from my repository and let's take a look at it.
 
 Default build.cmd contains few sections.
 
 * Check prerequisitions (node must be installed)
 * Set variables most important for us is DEPLOYMENT_TARGET
-* Build steps (not defined in original Kudu script)
-* Deployment
+* Build steps (not defined in original Kudu script but already created here)
+* Deployment process
 * Error logging section
 
 So as you see all is quite simple. What do we need is to create new step to build our project and modify deployment script to put artifacts in the proper place.
