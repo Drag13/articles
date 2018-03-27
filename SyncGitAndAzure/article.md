@@ -13,7 +13,7 @@
 
 Today we will learn how to build and deploy your front-end application directly from your GitHub account to the site hosted on Azure.
 
-Actually, there are at least two ways how to do this. First one is to setup continues integration for the project. It is a nice and powerful tool but requires too much time to set-up. So, if you need something simple and quick - this is not for you. The second way is to use Kudu. Today we will learn how to do this.
+Actually, there are at least two ways how to do this. First one is to setup continues integration for the project. It is a nice and powerful tool but requires too much time to set-up. So, if you need something simple and quick - this is not for you. The second way is to use [Kudu](https://github.com/projectkudu/kudu). Today we will learn how to do this.
 
 ## Prerequisite
 
@@ -29,11 +29,11 @@ Go to the Github and create a new repository. Then clone it to your local worksp
 
 Now it is time to sync your repository with Azure. Open [Azure.Portal](portal.azure.com) and create new WebApp.
 
-![create_new_web_app](https://raw.githubusercontent.com/Drag13/articles/master/SyncGitAndAzure/Azure.NewApp.png)
+![create_new_web_app](https://raw.githubusercontent.com/Drag13/articles/master/SyncGitAndAzure/img/NewApp.PNG)
 
 Feel free to select any service plan you want, this doesn't matter right now. When this will be done, select your website and click on "Deployment options" menu.
 
-![sync_select](https://raw.githubusercontent.com/Drag13/articles/master/SyncGitAndAzure/Azure.Sync.Select.PNG)
+![sync_select](https://raw.githubusercontent.com/Drag13/articles/master/SyncGitAndAzure/img/DeploymentOptions.PNG)
 
 Here you need to pick GitHub as the source, provide your credentials and select the remote repo you want to sync with. After this, Azure will clone your repository, push all files under the wwwroot folder and start serving static files with IIS server. As far as we have the index.html file in the root of the repository it will be given by default and now you should see it.
 
@@ -72,7 +72,7 @@ command = build.cmd
 
 This will instruct Azure to execute build.cmd file after you commit something new to the repository. And there, you can do whatever you want. It is pure command line file that can do almost everything you need. Isn't this cool?
 
-So we can write our own deployment script or modify existed one. But if we will do this manually it will take some time and be not very efficient. Now it's time for [Kudu](https://github.com/projectkudu/kudu).Under the hood, Azure uses it to sync your code and your publish folder. So we also can use Kudu for our needs. Grab [build.cmd](https://github.com/Drag13/articles/blob/master/SyncGitAndAzure/example/build.cmd) file from my repository and let's take a look at it.
+So we can write our own deployment script or modify existed one. But if we will do this manually it will take some time and be not very efficient. Now it's time for Kudu. Under the hood, Azure uses it to sync your code and your publish folder. So we also can use Kudu for our needs. Grab [build.cmd](https://raw.githubusercontent.com/Drag13/articles/master/SyncGitAndAzure/example/build.cmd) file from my repository and let's take a look at it.
 
 Default build.cmd contains few sections.
 
