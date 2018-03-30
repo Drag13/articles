@@ -1,4 +1,4 @@
-# How to sync your GitHub repository and Azure
+# How to build and deploy your front-end application from GitHub to Azure with Kudu
 
 ## Contents
 
@@ -111,7 +111,9 @@ to this one:
 call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%\dist" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;build.cmd;app;node_modules;"
 ```
 
-And that's it
+I know this looks like a bit messy but it is just a call to the Kudu (don’t mess with Ktulhu) with a few params. It’s really not scary. And that’s it.
+
+Now, commit and push your code, wait a few minutes and your application will be built and deployed to the Azure. Now you can setup some preconditions for the push to the master branch (like tests, code-style e.t.c) and whenever you update master — your application will be delivered and deployed.
 
 ## Conclusion
 
