@@ -141,7 +141,7 @@ Add this to the end of the .travis.yml file
 
 Commit and push. Now you should see something like this
 
-![Codecov report image](https://raw.githubusercontent.com/Drag13/articles/master/DotnetCI/imgs/TravisBuildFailed.PNG)
+![Codecov report image](https://raw.githubusercontent.com/Drag13/articles/master/DotnetCI/imgs/CoverageReportSmall.PNG)
 
 Don't forget to take second badge.
 [![codecov](https://codecov.io/gh/Drag13/CIDemo/branch/master/graph/badge.svg)](https://codecov.io/gh/Drag13/CIDemo)
