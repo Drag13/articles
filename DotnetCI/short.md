@@ -7,11 +7,11 @@ Hi guys! Today we will learn how to setup Continuous Integration process for our
 * [Visual Studio 2017](https://www.visualstudio.com/)
 * [Azure account](https://portal.azure.com/) - optional
 
-Lets start.
+Let's start.
 
-## Start new project
+## Start a new project
 
-Create new repository on GitHub and clone it locally. Don't forget to select .gitignore file template for VisualStudio to keep your repository clean and nice. Than generate new .NET core web application with
+Create a new repository on GitHub and clone it locally. Don't forget to select .gitignore file template for VisualStudio to keep your repository clean and nice. Than generate new .NET Сore web application with
 
 ```cmd
 dotnet new sln --name CIDemo
@@ -28,9 +28,9 @@ Commit your changes directly to master and push them to the remote.
 
 Now we will setup first step of the CI process - build check.
 
-Go to the [Travis](https://travis-ci.org/) and login with GitHub account. Give Travis access to your repository.
+Go to the [Travis](https://travis-ci.org/) and log in with GitHub account. Give Travis access to your repository.
 
-Go back to the repostory, create new branch CIBuild and add .travis.yml file to the root of the folder
+Go back to the repository, create new branch CIBuild and add the .travis.yml file to the root of the folder
 
 ``` text
 language: csharp
@@ -46,20 +46,29 @@ script:
     - dotnet build CIDemo.sln -c Release
 ```
 
-were:
+.travis.yml file will keep your Travis settings and configure your CI process. Right now it contains:
 
 * language - your programming language.
 * dotnet - version of the required dotnet SDK
-* env - environment variables passed to the build process. I've added DOTNET_CLI_TELEMETRY_OPTOUT to [switch off](https://docs.microsoft.com/en-us/dotnet/core/tools/telemetry) telemtry.
+* env - environment variables passed to the build process. I've added DOTNET_CLI_TELEMETRY_OPTOUT to [switch off](https://docs.microsoft.com/en-us/dotnet/core/tools/telemetry) telemetry.
 * script - commands for Travis.
 
-Commit and push, than make a pull request. Now you should see something like this:
+Commit and push your changes, then make a pull request. Now you should see something like this:
+
+![Travis ok image](https://raw.githubusercontent.com/Drag13/articles/master/DotnetCI/imgs/TravisBuildSuccess.PNG)
+
+This means that all is going ok. If you create a pull request that will not be buildable, Travis will report this.
+
+![Travis failed image](https://raw.githubusercontent.com/Drag13/articles/master/DotnetCI/imgs/TravisBuildFailed.PNG)
 
 Don't forget to take build badge from the personal cabinet.
+[![Build Status](https://travis-ci.org/Drag13/CIDemo.svg?branch=master)](https://travis-ci.org/Drag13/CIDemo)
 
 ## CI Tests
 
-Inside the solution, create new projec test. Add [coverlet.msbuild](https://github.com/tonerdo/coverlet) nuget package to the BllTest project. It will generate code coverage report file.
+Now let's configure tests for our CI process. The main idea of this step is to check that new code doesn't break your existing code and keep code coverage on the acceptable level.
+
+Inside the solution, create the new project Test. Add [coverlet.msbuild](https://github.com/tonerdo/coverlet) NuGet package to the Test project. It will generate code coverage report file.
 
 ```cmd
 dotnet new xunit --name test
@@ -67,7 +76,7 @@ dotnet add test/test.csproj package coverlet.msbuild -v 1.2.0
 dotnet sln CIDemo.sln add test/test.csproj
 ```
 
-Inside web project create new class
+Inside web project create the new class
 
 ```c#
 using System;
@@ -84,7 +93,7 @@ namespace web
 }
 ```
 
-Inside the test project create new class
+Inside the Test project create the new class
 
 ```c#
 using web;
@@ -109,11 +118,19 @@ namespace test
 
 Update travis.yml file and add this line to the script section:
 
-```text
- - dotnet test -c Release --no-build test/test.c        sproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+```cmd
+ - dotnet test -c Release --no-build test/test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 ```
 
-Go to the [Codecov](https://codecov.io), login with your GitHub account and give access to your repository.
+If you want you can specify threshold level:
+
+```cmd
+dotnet test /p:CollectCoverage=true /p:Threshold=TRESHOLD_LVL
+```
+
+If your code coverage will be lower than TRESHOLD_LVL you will receive an error. This is useful when you like to have not less than the certain level of code coverage
+
+Go to the [Codecov](https://codecov.io), log in with your GitHub account and give access to your repository.
 
 Add this to the end of the .travis.yml file
 
@@ -124,27 +141,44 @@ Add this to the end of the .travis.yml file
 
 Commit and push. Now you should see something like this
 
-### CI Deploy
+![Codecov report image](https://raw.githubusercontent.com/Drag13/articles/master/DotnetCI/imgs/TravisBuildFailed.PNG)
+
+Don't forget to take second badge.
+[![codecov](https://codecov.io/gh/Drag13/CIDemo/branch/master/graph/badge.svg)](https://codecov.io/gh/Drag13/CIDemo)
+
+### CI Deploy to Azure
+
+Default deployment to Azure is very simple. It is already tuned to work with .NET Core applications out of the box. So the only thing you need is to give Azure access to your repository and synchronize them. All other stuff will be done automatically.
 
 Login to [Azure](https://portal.azure.com) and create new site with this link
-[link](https://portal.azure.com/#create/Microsoft.WebSite). Specify site name, subscription and OS.
+[link](https://portal.azure.com/#create/Microsoft.WebSite). Specify site name, subscription, and Operating System. Than select DeploymentOptions -> Github -> Project -> Branch. After this, your remote repository will be synced with GitHub and a few minutes later - deployed.
+
+## CI Deploy to Azure - Advanced
+
+But what if you need to do some advanced stuff like build UI, update web.config, or other something other? The cool thing that deployment process is fully configurable. All you need is to specify build script and describe steps you want to see.
 
 Go back to the repository. Add two new files to the root of the project
 
-* [.deployment](https://github.com/Drag13/FSharpWebAppWithCIDemo/blob/master/.deployment) // describes deployment steps
-* [build.cmd](https://github.com/Drag13/FSharpWebAppWithCIDemo/blob/master/build.cmd)   // describe deployment process
+* [.deployment](https://github.com/Drag13/CIDemo/blob/master/.deployment) // describes deployment steps
+* [build.cmd](https://github.com/Drag13/CIDemo/blob/master/deploy.cmd)   // describe deployment process
 
-After adding this files, go back to Azure and select your site. Than select DeploymentOptions -> Github -> Project -> Branch. After this your remote repository will be synced with github and a few minutes later - deployed. 
+The build.cmd file may look a bit scary but in fact, it is very simple. Here what is going inside
 
-Well done, CI is ready.
+* Setup paths
+* Install [kudusync](https://github.com/projectkudu/KuduSync)
+* Restore NuGet packages
+* Publish application
+* Copy publish result to the site folder
 
-## Usefull Links
+The main idea is that this is only cmd script that allows you to do everything you need. You can use dotnet, NuGet, node, npm and other tools to customize your build process whatever you want. If you want to read more about deploymnt to Azure you can read this article - [How to build and deploy your front-end application from GitHub to Azure with Kudu](https://medium.com/@drag13dev/how-to-sync-your-github-repository-and-azure-40bdb564d788)
 
-* [.NET Core SDK > 2.1.](https://www.microsoft.com/net/)
-* [GitHub](https://github.com)
-* [Git](https://git-scm.com/downloads)
-* [Travis-ci](https://travis-ci.org)
-* [TravisDocumentation](https://docs.travis-ci.com/)
-* [Codecov](https://codecov.io)
-* [Azure](https://portal.azure.com)
+That is all! Hope this will help you to make your applications better. Have a nice day!
+
+## Useful Links
+
+* [Travis documentation](https://docs.travis-ci.com/)
+* [Codecov documentation](https://docs.codecov.io/docs)
+* [Coverlet documentation](https://github.com/tonerdo/coverlet/blob/master/README.md)
+* [Kudusync](https://github.com/projectkudu/KuduSync)
 * [DemoRepository](https://github.com/Drag13/FSharpWebAppWithCIDemo)
+* [How to build and deploy your front-end application from GitHub to Azure with Kudu](https://medium.com/@drag13dev/how-to-sync-your-github-repository-and-azure-40bdb564d788)
