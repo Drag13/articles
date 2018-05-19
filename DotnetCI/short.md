@@ -1,4 +1,4 @@
-# Continuous Integration with three steps - build, test, deploy
+# Free Continuous Integration for your GitHub project with three easy steps - build, test, deploy
 
 Hi guys! Today we will learn how to setup Continuous Integration process for our own GitHub repository. This is very easy and even free. You will need
 
@@ -147,6 +147,8 @@ Don't forget to take second badge.
 [![codecov](https://codecov.io/gh/Drag13/CIDemo/branch/master/graph/badge.svg)](https://codecov.io/gh/Drag13/CIDemo)
 
 ### CI Deploy to Azure
+
+Here I will show how to setup deploymnt to Azure. But if you don't want to use Azure, Travis supports a lot of other deployment targets like Google and Amazon. [Here](https://docs.travis-ci.com/user/deployment/) you can read more about deployment directly from Travis.
 
 Default deployment to Azure is very simple. It is already tuned to work with .NET Core applications out of the box. So the only thing you need is to give Azure access to your repository and synchronize them. All other stuff will be done automatically.
 
