@@ -15,10 +15,7 @@ Create a new repository on GitHub and clone it locally. Don't forget to select .
 
 ```cmd
 dotnet new sln --name CIDemo
-md web
-cd web
-dotnet new web
-cd..
+dotnet new web --name web
 dotnet sln CIDemo.sln add web/web.csproj
 ```
 
@@ -128,7 +125,7 @@ If you want you can specify threshold level:
 dotnet test /p:CollectCoverage=true /p:Threshold=TRESHOLD_LVL
 ```
 
-If your code coverage will be lower than TRESHOLD_LVL you will receive an error. This is useful when you like to have not less than the certain level of code coverage
+If your code coverage becomes lower than TRESHOLD_LVL you will receive an error. This is useful when you like to have not less than the certain level of code coverage
 
 Go to the [Codecov](https://codecov.io), log in with your GitHub account and give access to your repository.
 
@@ -146,7 +143,7 @@ Commit and push. Now you should see something like this
 Don't forget to take second badge.
 [![codecov](https://codecov.io/gh/Drag13/CIDemo/branch/master/graph/badge.svg)](https://codecov.io/gh/Drag13/CIDemo)
 
-### CI Deploy to Azure
+## CI Deploy to Azure
 
 Here I will show how to setup deploymnt to Azure. But if you don't want to use Azure, Travis supports a lot of other deployment targets like Google and Amazon. [Here](https://docs.travis-ci.com/user/deployment/) you can read more about deployment directly from Travis.
 
@@ -175,6 +172,15 @@ The build.cmd file may look a bit scary but in fact, it is very simple. Here wha
 The main idea is that this is only cmd script that allows you to do everything you need. You can use dotnet, NuGet, node, npm and other tools to customize your build process whatever you want. If you want to read more about deploymnt to Azure you can read this article - [How to build and deploy your front-end application from GitHub to Azure with Kudu](https://medium.com/@drag13dev/how-to-sync-your-github-repository-and-azure-40bdb564d788)
 
 That is all! Hope this will help you to make your applications better. Have a nice day!
+
+## Other CI tools
+
+Travis is not the only one can help you with free CI.
+You also can check next projects:
+
+* [codeship](https://codeship.com/pricing) (free for OpenSource)
+* [circleci](http://circleci.com/pricing/) (free 1,500 build minutes per month, special offers for OpenSource)
+* [buddy](https://buddy.works/pricing) free (120 executions/month)
 
 ## Useful Links
 
