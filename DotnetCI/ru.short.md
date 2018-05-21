@@ -142,8 +142,10 @@ after_script:
 
 ## Аналоги Travis
 
-* [codeship](https://codeship.com/pricing) (Бесплатно для OpenSource)
-* [circleci](http://circleci.com/pricing/) (Бесплатно 1,500 минут билда - +- 300 билдов если что)
-* [buddy](https://buddy.works/pricing) (Бесплатно 120 билдов но для OpenSource обещают повышать если написать в техподдержку)
+* [Codeship](https://codeship.com/pricing) (Бесплатно для OpenSource)
+* [Circleci](http://circleci.com/pricing/) (Бесплатно 1,500 минут билда - +- 300 билдов если что)
+* [Buddy](https://buddy.works/pricing) (Бесплатно 120 билдов но для OpenSource обещают повышать если написать в техподдержку)
+
+Если вы знаете другие альтернативные и бесплатные решения для CI - пишите, добавлю в статью.
 
 Всем спасибо. Надеюсь получилось коротко и по сути.
