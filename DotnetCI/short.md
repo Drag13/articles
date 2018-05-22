@@ -1,6 +1,8 @@
 # Free Continuous Integration for your GitHub project with three easy steps - build, test, deploy
 
-Hi guys! Today we will learn how to setup Continuous Integration process for our own GitHub repository. This is very easy and even free. You will need
+Hi guys! Today we will learn how to setup Continuous Integration process for the C# project hosted on GitHub. This is very easy, can really improve your code quality and you always be sure that no one destroys your code with latest commit. Are you interested? Let's give it a try!
+
+## You will need
 
 * [GitHub account](https://github.com)
 * [.NET Core SDK > 2.1.](https://www.microsoft.com/net/)
