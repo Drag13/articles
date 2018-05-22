@@ -1,5 +1,7 @@
 # Быстрая настройка Continuous Integration для .NET Core c помощью Travis - CI. Выжимка
 
+![kdpv](https://raw.githubusercontent.com/Drag13/articles/master/DotnetCI/imgs/KDPV.PNG)
+
 По некоторым просьбам, публикую очень короткую выжимку моей предыдущей статьи, но "как для себя и c C#".
 Заодно добавил альтернативы Travis-у
 
