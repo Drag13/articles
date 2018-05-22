@@ -1,6 +1,6 @@
 # Быстрая настройка Continuous Integration для .NET Core c помощью Travis - CI. Выжимка
 
-По некторым просьбам, публикую очень коротку выжимку моей предыдущей статьи, но "как для себя и c C#".
+По некоторым просьбам, публикую очень короткую выжимку моей предыдущей статьи, но "как для себя и c C#".
 Заодно добавил альтернативы Travis-у
 
 <cut/>
@@ -29,14 +29,14 @@ script:
     - dotnet build CIDemo.sln -c Release
 ```
 
-> .travis.yml - служебный файл Travis, содержит настройки окружения, переменные и команды.
+> .travis.yml - служебный файл Travis, содержит настройки окружения, переменные и команды. Документация [тут](https://docs.travis-ci.com/)
 
 Залогиньтесь в [Travis](https://travis-ci.org/) и дайте ему доступ к вашему репозиторию. Залейте изменения на сервер.
 
 Удачный билд:
 ![Travis ok image](https://raw.githubusercontent.com/Drag13/articles/master/DotnetCI/imgs/TravisBuildSuccess.PNG)
 
-~~А у меня локально все рабоает~~ не удачный билд:
+~~А у меня локально все работает~~ Не удачный билд:
 ![Travis failed image](https://raw.githubusercontent.com/Drag13/articles/master/DotnetCI/imgs/TravisBuildFailed.PNG)
 
 Добавьте тестовый проект
@@ -106,6 +106,8 @@ namespace test
         - bash <(curl -s https://codecov.io/bash)
 ```
 
+> Команда отправляет результаты тестов на codecov. Документация [тут](https://docs.codecov.io/docs).
+
 Залогиньтесь в [https://codecov.io](https://codecov.io) и дайте ему доступ к вашему репозиторию.
 
 Результат работы codecov:
@@ -133,18 +135,20 @@ after_script:
         - bash <(curl -s https://codecov.io/bash)
 ```
 
-## Полезные ссылки
-
-* [Travis documentation](https://docs.travis-ci.com/)
-* [Codecov documentation](https://docs.codecov.io/docs)
-* [Coverlet documentation](https://github.com/tonerdo/coverlet/blob/master/README.md)
-* [Очень расширеная версия этой статьи](https://habr.com/post/354682/)
-
 ## Аналоги Travis
 
 * [Codeship](https://codeship.com/pricing) (Бесплатно для OpenSource)
 * [Circleci](http://circleci.com/pricing/) (Бесплатно 1,500 минут билда - +- 300 билдов если что)
 * [Buddy](https://buddy.works/pricing) (Бесплатно 120 билдов но для OpenSource обещают повышать если написать в техподдержку)
+
+Вместо Codecov для работы с тестами можно использовать [https://coveralls.io/](https://coveralls.io/). Тоже бесплатен для Open Source проектов.
+
+## Полезные ссылки
+
+* [Travis documentation](https://docs.travis-ci.com/)
+* [Codecov documentation](https://docs.codecov.io/docs)
+* [Coverlet documentation](https://github.com/tonerdo/coverlet/blob/master/README.md)
+* [Очень расширенная версия этой статьи](https://habr.com/post/354682/)
 
 Если вы знаете другие альтернативные и бесплатные решения для CI - пишите, добавлю в статью.
 
