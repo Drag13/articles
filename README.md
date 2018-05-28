@@ -1,5 +1,6 @@
 # Let's speak a bit
 
+* [[EN] [23.05.2018] Easy Continuous Integration for your GitHub project with three short steps — build, test, deploy](https://medium.com/@drag13dev/easy-continuous-integration-for-your-github-project-with-three-short-steps-build-test-deploy-2567c4091847)
 * [[RU] [14.05.2018] Step by step Continuous Integration (build, test, deploy) setup for .NET Core WebApp + GitHub](https://habr.com/post/354682/)
 * [[EN] [29.03.2018] How to build and deploy your front-end application from GitHub to Azure with Kudu](https://medium.com/@drag13dev/how-to-sync-your-github-repository-and-azure-40bdb564d788)
 * [[EN] [22.03.2018] Npm install -g is evil](https://medium.com/@drag13dev/npm-install-g-is-evil-b07c7e3325bf)
