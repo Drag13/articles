@@ -225,6 +225,8 @@ cz-conventional-changelog это адаптер, который отвечает
 
 Диалог с commitizen выглядит так:
 
+![commitizen](https://raw.githubusercontent.com/Drag13/articles/master/npm/commitizen.PNG)
+
 Для VSCode есть [плагин](https://github.com/KnisterPeter/vscode-commitizen)
 
 ## Документация
@@ -293,7 +295,7 @@ npm i -D husky
 "prepush": "call npm run lint && call npm run test"
 ```
 
-Вот тут есть важный нюанс, использование call синтаксиса не кроссплатформенно и на unix системах не взлетит. Так что если хотите все сделать по-честному придется поставить еще и [npm-run-all](https://www.npmjs.com/package/npm-run-all) пакет.
+Тут есть важный нюанс, использование call синтаксиса не кроссплатформенно и на unix системах не взлетит. Так что если хотите все сделать по-честному придется поставить еще и [npm-run-all](https://www.npmjs.com/package/npm-run-all) пакет.
 
 ## Публикация
 
