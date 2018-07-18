@@ -1,8 +1,8 @@
 # How to create good npm package for your team
 
-When you work alone, you can write in any manner you want. But let's say you need to create a good npm package that will be easy to deal with. With codestyle, testing, documentation and so on. And of course you don't wont to do this manually. It's is not hard but some points may be a bit tricky. This topic helps you to build your own typescript project ready to publish to npm.
+When you work alone, you can write in any manner you want - because it the best manner. But let's say you need to create a good npm package that will be easy to deal with. With codestyle, testing, documentation and so on. And of course you don't wont to do this manually. This topic helps you to build your own npm project ready to publish to npm.
 
-Let's decide what exactly we want to achive
+So that is what you will get after reading the article
 
 * Text formatting - indention size, indention type, etc.
 * Code style - single qoute or double qoute, using semicolumn, etc.
