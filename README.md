@@ -1,6 +1,6 @@
 # Let's speak a bit
 
-* [[EN] [19.07.2018 How to setup npm project for you and your team with automated formatting, linting, testing and auto-generated documentation]](https://medium.com/@drag13dev/https-medium-com-drag13dev-how-to-setup-npm-project-for-you-and-your-team-a7de38e5a2f7)
+* [[EN] [19.07.2018] How to setup npm project for you and your team with automated formatting, linting, testing and auto-generated documentation](https://medium.com/@drag13dev/https-medium-com-drag13dev-how-to-setup-npm-project-for-you-and-your-team-a7de38e5a2f7)
 * [[RU] [17.07.2018] How to setup npm project for you and your team with automated formatting, linting, testing and auto-generated documentation](https://habr.com/post/417429/)
 * [[EN] [23.05.2018] Easy Continuous Integration for your GitHub project with three short steps — build, test, deploy](https://medium.com/@drag13dev/easy-continuous-integration-for-your-github-project-with-three-short-steps-build-test-deploy-2567c4091847)
 * [[RU] [14.05.2018] Step by step Continuous Integration (build, test, deploy) setup for .NET Core WebApp + GitHub](https://habr.com/post/354682/)
