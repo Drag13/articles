@@ -1,6 +1,6 @@
 # How to get javascript bytecode from V8 and others in 2019
 
-Have you ever thought how your javascript code looks like in bytecode? If yes, just follow the white rabbit.
+Have you ever thought about how your javascript code looks like in bytecode? If yes, just follow the white rabbit.
 
 Install latest Node.Js or check your current version using -v command. If it's 8.3 or above, everything is ok. If no, check the second part of this article.
 
@@ -21,7 +21,7 @@ Frame size 24
          000002252055F084 @    2 : 26 fb             Star r0
 ```
 
-> If you are curious what it is and how to read this - here is a good [point to start](https://medium.com/dailyjs/understanding-v8s-bytecode-317d46c94775).
+> If you are curious about what it is and how to read this - here is a good [point to start](https://medium.com/dailyjs/understanding-v8s-bytecode-317d46c94775).
 
 But what if you want to see only some part of the code, let's say some function? Luckily, we have one more flag to filter bytecode by function's name ---print-bytecode-filter.
 
@@ -62,8 +62,8 @@ If you want to see all the flags available for [v8](https://gist.github.com/Drag
 
 ## Useful links
 
-[Understanding bytecode from V8](https://medium.com/dailyjs/understanding-v8s-bytecode-317d46c94775)
-[V8 bytescodes](https://github.com/v8/v8/blob/master/src/interpreter/bytecodes.h)
-[V8 bytecodes with comments](https://github.com/v8/v8/blob/master/src/interpreter/interpreter-generator.cc)
+* [Understanding bytecode from V8](https://medium.com/dailyjs/understanding-v8s-bytecode-317d46c94775)
+* [V8 bytescodes](https://github.com/v8/v8/blob/master/src/interpreter/bytecodes.h)
+* [V8 bytecodes with comments](https://github.com/v8/v8/blob/master/src/interpreter/interpreter-generator.cc)
 
 That's it guys, thanks for your time, hope you found this fun enough.
