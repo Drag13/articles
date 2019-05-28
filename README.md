@@ -1,5 +1,6 @@
 # Let's speak a bit
 
+* [[EN] [08.04.2019] How to get JavaScript bytecode from Node.js and V8 in 2019](https://medium.com/@drag13dev/https-medium-com-drag13dev-how-to-get-javascript-bytecode-from-nodejs-7bd396805d30)
 * [[EN] [07.09.2018] Discovering new angular/cli command library - short overview](https://medium.com/@drag13dev/https-medium-com-drag13dev-discovering-new-angular-cli-command-library-18fe62e0ffb0)  
 * [[RU] [04.09.2018] Testing new @angular/cli library command - overview](https://habr.com/post/422051/)
 * [[EN] [19.07.2018] How to setup npm project for you and your team with automated formatting, linting, testing and auto-generated documentation](https://medium.com/@drag13dev/https-medium-com-drag13dev-how-to-setup-npm-project-for-you-and-your-team-a7de38e5a2f7)
