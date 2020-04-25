@@ -1,4 +1,4 @@
-# Security headers
+# Top-5 HTTP Security Headers in 2020
 
 Nowadays, security is important as never before. I've prepared a very small article about the Top-5 security headers in 2020 that will help your site keep your users in safety. Have a nice reading!
 
@@ -18,7 +18,7 @@ and waits for the results
 
 Luckily, Alice knows about CSP header and already added it to the response : ```Content-Security-Policy: default-src 'self'```. Now, a browser already knows, that scripts (and images, and fonts, and styles) not from origin domains are forbidden to use and Bob's attack fails.
 
-Withing this header you can deny inline scripts and eval usage (goodby inline XSS), specify a checksum for the scripts (good by substitution of the 3rd party scripts), allow specific domains for your images, fonts, and styles. It can deny usage of your site inside an iframe (goodby (CSRF)[https://en.wikipedia.org/wiki/Cross-site_request_forgery]) CSP header is very flexible and can support almost all of your needs.
+Withing this header you can deny inline scripts and eval usage (goodby inline XSS), specify a checksum for the scripts (good by substitution of the 3rd party scripts), allow specific domains for your images, fonts, and styles. It can deny usage of your site inside an iframe (goodby [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)) CSP header is very flexible and can support almost all of your needs.
 
 ### Can I use?
 
@@ -27,6 +27,7 @@ CSP header [supported](https://caniuse.com/#feat=mdn-http_headers_csp_content-se
 ### Code Example
 
 Deny everything at all: ```Content-Security-Policy: default-src 'none'```
+
 Strict one: ``` Content-Security-Policy: default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; object-src 'none' ```
 
 An example is really simplified, so for additional info check the [mdn page](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the [CSP Cheat Sheet](https://scotthelme.co.uk/csp-cheat-sheet/) is also very useful.
@@ -46,7 +47,7 @@ This header tells the browser,  strictly follow provided Mime/Type, and don't tr
 
 ### Code Example
 
-Only one option is possible: ```X-Content-Type-Options nosniff```
+Only one option is possible: ```X-Content-Type-Options: nosniff```
 
 ## Feature-Policy
 
@@ -101,7 +102,7 @@ Showing referer info only for the origin: ```Referrer-Policy: same-origin```
 
 * [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
 * [CSP Cheat Sheet](https://scotthelme.co.uk/csp-cheat-sheet/)
-* [Feature-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy)]
+* [Feature-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy)
 * [Using Feature-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy/Using_Feature_Policy)
 * [X-Content-Type-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/headers/X-Content-Type-Options)
 * [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
@@ -110,4 +111,4 @@ Showing referer info only for the origin: ```Referrer-Policy: same-origin```
 
 Bonus: web.config with all set headers can be found [here]()
 
-Stay safe and don't forget to remove x-powered header! :)
+**Stay safe and don't forget to remove x-powered header! :)**
