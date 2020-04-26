@@ -18,7 +18,7 @@ and waits for the results
 
 Luckily, Alice knows about CSP header and already added it to the response : ```Content-Security-Policy: default-src 'self'```. Now, a browser already knows, that scripts (and images, and fonts, and styles) not from origin domains are forbidden to use and Bob's attack fails.
 
-Withing this header you can deny inline scripts and eval usage (goodby inline XSS), specify a checksum for the scripts (good by substitution of the 3rd party scripts), allow specific domains for your images, fonts, and styles. It can deny usage of your site inside an iframe (goodby [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)) CSP header is very flexible and can support almost all of your needs.
+Withing this header you can deny inline scripts and eval usage (goodby inline XSS), specify a checksum for the scripts (good by substitution of the 3rd party scripts), allow specific domains for your images, fonts, and styles. It can restrict fetch requests, deny usage of your site inside an iframe (goodby [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)) and much more. CSP header is very flexible and can support almost all of your needs.
 
 ### Can I use?
 
@@ -26,11 +26,13 @@ CSP header [supported](https://caniuse.com/#feat=mdn-http_headers_csp_content-se
 
 ### Code Example
 
-Deny everything at all: ```Content-Security-Policy: default-src 'none'```
+* Allow all remote resources from your domain: ```Content-Security-Policy: default-src 'self'```. No external API calls allowed!
+* Allow all remote resource from your domain and external api calls: ```Content-Security-Policy: default-src 'self'; connect-src 'self' https://randomuser.me```. IFramin is allowed.
+* Allow all remote resource from your domain, external api calls, disallow iframing your site: ```Content-Security-Policy: default-src 'self'; connect-src 'self' https://randomuser.me; frame-ancestors 'none';``` Not so strict as I wish.
+* Disallow everything except whitelisted: ```Content-Security-Policy: default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self' https://randomuser.me; script-src 'self'; style-src 'self'; frame-ancestors 'none'``` Much better now but without [critical css](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
+* Disallow everything except whitelisted (with inline css): ```Content-Security-Policy: default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self' https://randomuser.me; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'```
 
-Strict one: ``` Content-Security-Policy: default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; object-src 'none' ```
-
-An example is really simplified, so for additional info check the [mdn page](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the [CSP Cheat Sheet](https://scotthelme.co.uk/csp-cheat-sheet/) is also very useful.
+Examples are simplified just to give you better understanding of the CSP header power. For additional info check the [mdn page](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the [CSP Cheat Sheet](https://scotthelme.co.uk/csp-cheat-sheet/) is also very useful.
 
 
 ## X-Content-Type-Options
@@ -66,7 +68,8 @@ Partially [supported](https://caniuse.com/#feat=feature-policy) by most of the b
 
 ### Code Example
 
-Disabling sensetive features: ```Feature-Policy: camera 'none' microphone 'none' geolocation 'none' autoplay 'self'```
+Disabling geolocation:  ```Feature-Policy: geolocation 'none'```
+Disabling sensetive features:  ```Feature-Policy: camera 'none'; microphone 'none'; geolocation 'none'; autoplay 'none'; display-capture 'none'; payment 'none'```
 
 ## Strict-Transport-Security
 
@@ -97,6 +100,20 @@ Mostly [Supported](https://caniuse.com/#feat=referrer-policy) with all (IE - par
 ### Code Example
 
 Showing referer info only for the origin: ```Referrer-Policy: same-origin```
+
+## Summary:
+
+As far as I use .NET, here is the result setup for web.config: (note, unsafe js inline is not supported):
+
+```xml
+<customHeaders>
+    <add name="Content-Security-Policy" value="default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self' https://my-example-api.ua; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'" />
+    <add name="Feature-Policy" value="camera 'none'; microphone 'none'; geolocation 'none'; autoplay 'none'; display-capture 'none'; payment 'none'" />
+    <add name="X-Content-Type-Options" value="nosniff"/>
+    <add name="Referrer-Policy" value="same-origin"/>
+    <add name="Strict-Transport-Security" value="max-age=31536000"/>
+</customHeaders>
+```
 
 ## Usefull links:
 
