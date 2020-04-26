@@ -32,9 +32,9 @@ CSP header [supported](https://caniuse.com/#feat=mdn-http_headers_csp_content-se
 * Disallow everything except whitelisted: ```Content-Security-Policy: default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self' https://randomuser.me; script-src 'self'; style-src 'self'; frame-ancestors 'none'``` Much better now but without [critical css](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
 * Disallow everything except whitelisted (with inline css): ```Content-Security-Policy: default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self' https://randomuser.me; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'```
 
-Examples are simplified just to give you better understanding of the CSP header power. For additional info check the [mdn page](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the [CSP Cheat Sheet](https://scotthelme.co.uk/csp-cheat-sheet/) is also very useful.
+Examples are simplified just to give you a better understanding of the CSP header power. For additional info check the [mdn page](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the [CSP Cheat Sheet](https://scotthelme.co.uk/csp-cheat-sheet/) is also very useful.
 
-**Importan notice**: If you need to deny posibility to iframe your site in IE - you should use [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
+**Important Notice**: If you need to deny the possibility to iframe your site in IE - you should use [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 
 
 ## X-Content-Type-Options
