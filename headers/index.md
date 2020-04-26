@@ -34,6 +34,8 @@ CSP header [supported](https://caniuse.com/#feat=mdn-http_headers_csp_content-se
 
 Examples are simplified just to give you better understanding of the CSP header power. For additional info check the [mdn page](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the [CSP Cheat Sheet](https://scotthelme.co.uk/csp-cheat-sheet/) is also very useful.
 
+**Importan notice**: If you need to deny posibility to iframe your site in IE - you should use [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
+
 
 ## X-Content-Type-Options
 
