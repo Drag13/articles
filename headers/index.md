@@ -131,3 +131,5 @@ As far as I use .NET, here is the result setup for web.config: (note, unsafe js 
 Bonus: web.config with all set headers can be found [here]()
 
 **Stay safe and don't forget to remove x-powered header! :)**
+
+[Thanks to John Salvino for the photo]
