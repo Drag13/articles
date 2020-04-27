@@ -27,10 +27,10 @@ CSP header [supported](https://caniuse.com/#feat=mdn-http_headers_csp_content-se
 ### Code Example
 
 * Allow all remote resources from your domain: ```Content-Security-Policy: default-src 'self'```. No external API calls allowed!
-* Allow all remote resource from your domain and external api calls: ```Content-Security-Policy: default-src 'self'; connect-src 'self' https://randomuser.me```. IFramin is allowed.
-* Allow all remote resource from your domain, external api calls, disallow iframing your site: ```Content-Security-Policy: default-src 'self'; connect-src 'self' https://randomuser.me; frame-ancestors 'none';``` Not so strict as I wish.
-* Disallow everything except whitelisted: ```Content-Security-Policy: default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self' https://randomuser.me; script-src 'self'; style-src 'self'; frame-ancestors 'none'``` Much better now but without [critical css](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
-* Disallow everything except whitelisted (with inline css): ```Content-Security-Policy: default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self' https://randomuser.me; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'```
+* Allow all remote resource from your domain and external api calls: ```Content-Security-Policy: default-src 'self'; connect-src 'self' https://my-example-api.ua```. IFraming is allowed.
+* Allow all remote resource from your domain, external api calls, disallow iframing your site: ```Content-Security-Policy: default-src 'self'; connect-src 'self' https://my-example-api.ua; frame-ancestors 'none';``` Not so strict as I wish.
+* Disallow everything except whitelisted: ```Content-Security-Policy: default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self' https://my-example-api.ua; script-src 'self'; style-src 'self'; frame-ancestors 'none'``` Much better now but without [critical css](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
+* Disallow everything except whitelisted (with inline css): ```Content-Security-Policy: default-src 'none'; img-src 'self'; font-src 'self'; connect-src 'self' https://my-example-api.ua; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'```
 
 Examples are simplified just to give you a better understanding of the CSP header power. For additional info check the [mdn page](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the [CSP Cheat Sheet](https://scotthelme.co.uk/csp-cheat-sheet/) is also very useful.
 
