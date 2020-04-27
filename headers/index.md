@@ -128,7 +128,7 @@ As far as I use .NET, here is the result setup for web.config: (note, unsafe js 
 * [Strict-Transport-Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
 
 
-Bonus: web.config with all set headers can be found [here]()
+Bonus: web.config with all set headers can be found [here](https://github.com/Drag13/articles/blob/master/headers/web.config)
 
 **Stay safe and don't forget to remove x-powered header! :)**
 
