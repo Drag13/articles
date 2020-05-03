@@ -1,4 +1,5 @@
 # Let's speak a bit
+* [[EN] [27.04.2020] Top-5 HTTP Security Headers in 2020](https://medium.com/@drag13dev/top-5-http-security-headers-in-2020-c7a5c69e004a)
 * [[RU] [10.04.2020] React, performance and -500 milliseconds at launch - the history of our optimizations in numbers](https://habr.com/ru/post/495984/)
 * [[RU] [04.06.2019] We profile loading of Habr or how 189 requests influence rendering](https://habr.com/ru/post/454444/)
 * [[EN] [08.04.2019] How to get JavaScript bytecode from Node.js and V8 in 2019](https://medium.com/@drag13dev/https-medium-com-drag13dev-how-to-get-javascript-bytecode-from-nodejs-7bd396805d30)
