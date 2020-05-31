@@ -18,7 +18,7 @@ and waits for the results
 
 Luckily, Alice knows about CSP header and already added it to the response : ```Content-Security-Policy: default-src 'self'```. Now, a browser already knows, that scripts (and images, and fonts, and styles) not from origin domains are forbidden to use and Bob's attack fails.
 
-Withing this header you can deny inline scripts and eval usage (goodby inline XSS), specify a checksum for the scripts (good by substitution of the 3rd party scripts), allow specific domains for your images, fonts, and styles. It can restrict fetch requests, deny usage of your site inside an iframe (goodby [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)) and much more. CSP header is very flexible and can support almost all of your needs.
+Withing this header you can deny inline scripts and eval usage (goodbye inline XSS), specify a checksum for the scripts (goodbye substitution of the 3rd party scripts), allow specific domains for your images, fonts, and styles. It can restrict fetch requests, deny usage of your site inside an iframe (goodbye [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)) and much more. CSP header is very flexible and can support almost all of your needs.
 
 ### Can I use?
 
@@ -117,7 +117,7 @@ As far as I use .NET, here is the result setup for web.config: (note, unsafe js 
 </customHeaders>
 ```
 
-## Usefull links:
+## Useful links:
 
 * [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
 * [CSP Cheat Sheet](https://scotthelme.co.uk/csp-cheat-sheet/)
