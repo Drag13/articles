@@ -1,6 +1,13 @@
 # Articles moved to my blog: [drag13.io](https://drag13.io/)
 
 ## Archive
+* [[EN] How to get performance metrics and web vitals using Puppeteer, React and TypeScript, Part 1](https://drag13.io/posts/react-performance-puppeteer-profile/index.html)
+* [[EN] How to opt-out Federated Learning of Cohorts (FLoC) using JavaScript](https://drag13.io/posts/how-turn-off-floc-javascript/index.html)
+* [[EN] TypeScript Tips and Tricks - Utility Types With Examples](https://drag13.io/posts/typescript-tricks-utility-examples/index.html)
+* [[EN] TypeScript Tips and Tricks - Declarations With Examples](https://drag13.io/posts/typescript-tips-tricks-declarations/index.html)
+* [[EN] Perfrunner - automated tool to track your website speed changes](https://drag13.io/posts/perfrunner-intro/index.html)
+* [[EN] How to use React without unsafe-inline and why](https://drag13.io/posts/react-inline-runtimer-chunk/index.html)
+* [[EN] How to add custom types to the TypeScript project](https://drag13.io/posts/custom-typings/index.html)
 * [[EN] [27.04.2020] Top-5 HTTP Security Headers in 2020](https://medium.com/@drag13dev/top-5-http-security-headers-in-2020-c7a5c69e004a)
 * [[RU] [10.04.2020] React, performance and -500 milliseconds at launch - the history of our optimizations in numbers](https://habr.com/ru/post/495984/)
 * [[RU] [04.06.2019] We profile loading of Habr or how 189 requests influence rendering](https://habr.com/ru/post/454444/)
