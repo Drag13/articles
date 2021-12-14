@@ -1,6 +1,7 @@
 # Articles moved to my blog: [drag13.io](https://drag13.io/)
 
 ## Archive
+* [[EN] Performance testing on a slow network and weak CPU using Puppeteer and React, Part 2](https://drag13.io/posts/react-performance-puppeteer-limits/index.html)
 * [[EN] How to get performance metrics and web vitals using Puppeteer, React and TypeScript, Part 1](https://drag13.io/posts/react-performance-puppeteer-profile/index.html)
 * [[EN] How to opt-out Federated Learning of Cohorts (FLoC) using JavaScript](https://drag13.io/posts/how-turn-off-floc-javascript/index.html)
 * [[EN] TypeScript Tips and Tricks - Utility Types With Examples](https://drag13.io/posts/typescript-tricks-utility-examples/index.html)
